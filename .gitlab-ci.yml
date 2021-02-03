@@ -3,6 +3,17 @@ stages:
   - Build
   - Deploy
 
+variables:
+  DOCKER_IMAGE_VERSION: 19.03.13-git
+  DOCKER_SERVICE_VERSION: 19-dind
+
+default:
+  image: docker:$DOCKER_IMAGE_VERSION
+  services:
+    - docker:$DOCKER_SERVICE_VERSION
+
+
+
 testing:
   script: echo "write unit test to make this section necessary"
   stage: Test
