@@ -24,7 +24,7 @@ building:
   tags:
     - docker
   script: 
-    - docker build -t $CI_REGISTRY_IMAGE:latest
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE:latest
   stage: Build
 
