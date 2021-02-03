@@ -4,13 +4,19 @@ stages:
   - Deploy
 
 testing:
-  script: echo "testing"
+  script: echo "write unit test to make this section necessary"
   stage: Test
 
 building:
-  script: echo "building"
+  before_script: 
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  tags:
+    - docker
+  script: 
+    - docker build -t $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
   stage: Build
 
 deployment:
-  script: echo "deployment"
+  script: echo "configure heroku to finish this section"
   stage: Deploy
